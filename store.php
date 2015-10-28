@@ -7,9 +7,10 @@ Edit these lines according to your need
 $AUTHENTICATE_USER = true;	// true | false - disables user authentication
 $override_filename = true;  // overrides the given filename with [username].html, does not work without 'AUTHENTICATE_USER'
                             // usernames shall not contain slashes to avoid path traversal
-$override_savedir = true;   // i discourage anyone from using user-provided directory names
+$override_savedir = true;   // makefu: i discourage anyone from using user-provided directory names.
+                            // this variable sets the script to ignore the given save directory
 $savedir = './';            // default save directory (uploadDir)
-$override_backupdir = true; // override the given backupdir 
+$override_backupdir = true; // override/ignore the given backupdir 
 $backupdir = './backup';    // default backup directory
 
 // password file is in ini format
@@ -28,7 +29,7 @@ No change needed under
 
 /***
  * store.php - upload a file in this directory
- * version :1.6.1 - 2015/03/16 - makefu@github   
+ * version :1.7.0 - 2015/10/28 - makefu@github
  * 
  * see : 
  *	http://tiddlywiki.bidi.info/#UploadPlugin for usage
@@ -43,6 +44,8 @@ No change needed under
  * each external javascript file included by download.php is change by a reference (src=...)
  *
  * Revision history
+ * V1.7.0 - 2015/10/28
+ * Enhancement: - load users from environment
  * V1.6.1 - 2015/03/16 
  * Security: - add override_filename to ignore the given filename
  *           -  
@@ -101,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	</head>
 	<body>
 		<p>
-		<p>store.php V 1.6.1
+		<p>store.php V 1.7.0
 		<p>BidiX@BidiX.info
 		<p>&nbsp;</p>
 		<p>&nbsp;</p>

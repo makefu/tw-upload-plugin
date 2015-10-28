@@ -14,7 +14,14 @@ $override_backupdir = true; // override/ignore the given backupdir
 $backupdir = './backup';    // default backup directory
 
 // password file is in ini format
-$USERS = parse_ini_file(getenv("twpasswords"));
+$cfg = parse_ini_file(getenv("twconf"),true);
+$USERS = $cfg['users'];
+if (array_key_exists('backupdir',$cfg['directories'])){
+    $backupdir=$cfg['directories']['backupdir'];
+};
+if (array_key_exists('savedir',$cfg['directories'])){
+    $savedir=$cfg['directories']['savedir'];
+};
 
 $DEBUG = false;				// true | false
 $CLEAN_BACKUP = true; 		// during backuping a file, remove overmuch backups

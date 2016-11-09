@@ -261,7 +261,7 @@ $destfile = $filename;
 
 // get options
 foreach($optionArr as $o) {
-	list($key, $value) = split('=', $o);
+	list($key, $value) = explode('=', $o);
 	$options[$key] = $value;
 }
 

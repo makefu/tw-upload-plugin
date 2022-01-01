@@ -302,11 +302,11 @@ if ($override_savedir){
 		echo "UploadDirError : $uploadDirError - File NOT uploaded !\n";
 		toExit();
   }
-  if ($uploadDir{0} == '/') {
+  if ($uploadDir[0] == '/') {
     echo "no absolute path can be used for $uploaddir - file NOT uploaded!\n";
     toExit();
   }
-	if ($uploadDir{strlen($uploadDir)-1} != '/') {
+	if ($uploadDir[strlen($uploadDir)-1] != '/') {
 		$uploadDir = $uploadDir . '/';
 	}
 }
@@ -329,11 +329,11 @@ if ($override_backupdir) {
 		echo "BackupDirError : $bdir - File NOT uploaded !\n";
 		toExit();
   }
-  if ($bdir{0} == '/') {
+  if ($bdir[0] == '/') {
     echo "BackupDirError : no absolute path can be used for $bdir - file NOT uploaded!\n";
     toExit();
   }
-	if ($bdir{strlen($bdir)-1} != '/') {
+	if ($bdir[strlen($bdir)-1] != '/') {
 		$bdir = $bdir . '/';
 	}
 }
